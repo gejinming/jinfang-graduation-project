@@ -33,8 +33,7 @@ public interface GpSubjectStudentScoreMapper {
      */
     int delete(Long id);
 
-    int deleteByGradeAndsSchoolId(@Param("grade") String grade,
-                                  @Param("schoolId") Long schoolId);
+    int deleteByGradeAndsSchoolId(List<Long> subjectStudentIds);
 
     /**
      * 修改学生课题最终分数表

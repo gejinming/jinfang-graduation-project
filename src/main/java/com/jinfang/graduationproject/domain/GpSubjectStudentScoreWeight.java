@@ -24,27 +24,27 @@ public class GpSubjectStudentScoreWeight {
      */
     private Long schoolId;
     /**
-     * 综合文献得分
+     * 综合文献权重
      */
     private Double reviewWeight;
     /**
-     * 外文翻译得分
+     * 外文翻译权重
      */
     private Double translationWeight;
     /**
-     * 开题报告得分
+     * 开题报告权重
      */
     private Double openingReportWeight;
     /**
-     * 开题答辩得分
+     * 开题答辩权重
      */
     private Double openingDefenseWeight;
     /**
-     * 毕业论文得分
+     * 毕业论文权重
      */
     private Double dissertationWeight;
     /**
-     * 毕业答辩得分
+     * 毕业答辩权重
      */
     private Double graduationDefenseWeight;
     /**

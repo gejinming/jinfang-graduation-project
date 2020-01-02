@@ -150,11 +150,14 @@
         where id = #{id,jdbcType=BIGINT}
     </delete>
 
-    <delete id="deleteByGradeAndsSchoolId">
+    <delete id="deleteByGradeAndsSchoolId" parameterType="list">
         delete
         from gp_subject_student_score
-        where grade = #{grade,jdbcType=VARCHAR}
-          and school_id = #{schoolId,jdbcType=BIGINT}
+        where
+        subject_student_id in
+        <foreach collection="list" item="subjectStudentId" index="index" open="(" close=")" separator=",">
+            #{subjectStudentId}
+        </foreach>
     </delete>
 
     <update id="update" parameterType="com.jinfang.graduationproject.domain.GpSubjectStudentScore">
@@ -295,15 +298,14 @@
     </select>
 
     <insert id="batchInsert" parameterType="list">
-        insert into gp_subject_student_score (grade, school_id, subject_student_id, review_score, translation_score,
+        insert into gp_subject_student_score (subject_student_id, review_score, translation_score,
         opening_report_score,
         opening_defense_score, dissertation_score, graduation_defense_score, final_score, operate_user)
         values
 
         <foreach collection="list" item="record" index="index"
                  separator=",">
-            (#{record.grade,jdbcType=VARCHAR},
-            #{record.schoolId,jdbcType=BIGINT},
+            (
             #{record.subjectStudentId,jdbcType=BIGINT},
             #{record.reviewScore,jdbcType=DOUBLE},
             #{record.translationScore,jdbcType=DOUBLE},

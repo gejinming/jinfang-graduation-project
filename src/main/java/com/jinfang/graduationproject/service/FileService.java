@@ -144,7 +144,7 @@ public class FileService {
                 continue;
             }
 
-            // 拼接文件扩展名
+            // 拼接文件扩展名.后面的属性
             newFileName = newFileName + FileUploadUtil.getFileExtName(gpDocMeta.getNewName());
 
             zipFileMetas.add(ZipUtil.ZipFileMeta.builder().originFileName(gpDocMeta.getPath()).newFileName(newFileName).build());

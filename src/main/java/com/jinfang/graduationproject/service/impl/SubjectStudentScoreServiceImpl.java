@@ -49,14 +49,15 @@ public class SubjectStudentScoreServiceImpl implements SubjectStudentScoreServic
             return HttpResult.error("没有学生选题可以生成最终成绩");
         }
 
-        // 清楚原有成绩，重新批量生成
-        gpSubjectStudentScoreMapper.deleteByGradeAndsSchoolId(gpSubjectStudentScoreWeight.getGrade(), gpSubjectStudentScoreWeight.getSchoolId());
 
+        ArrayList<Long> subjectStudentIds = new ArrayList<>();
         List<GpSubjectStudentScore> finalList = new ArrayList<>();
         for (GpSubjectStudentScore sss : originList) {
             GpSubjectStudentScore score = new GpSubjectStudentScore();
             score.setSubjectStudentId(sss.getId());
-
+            if (!subjectStudentIds.contains(sss.getId())){
+                subjectStudentIds.add(sss.getId());
+            }
             BigDecimal reviewScore = getBDValue(sss.getReviewScore())
                     .multiply(getBDValue(gpSubjectStudentScoreWeight.getReviewWeight()));
             score.setReviewScore(reviewScore.doubleValue());
@@ -92,7 +93,9 @@ public class SubjectStudentScoreServiceImpl implements SubjectStudentScoreServic
 
             finalList.add(score);
         }
-
+        // 清除原有成绩，重新批量生成
+        //TODO gjm 2021/2/10 修改 这里写的语句错误，不存在数据库字段
+        gpSubjectStudentScoreMapper.deleteByGradeAndsSchoolId(subjectStudentIds);
         int rows = gpSubjectStudentScoreMapper.batchInsert(finalList);
         if (rows > 0) {
             gpSubjectStudentScoreWeightMapper.deleteByGradeAndsSchoolId(gpSubjectStudentScoreWeight.getGrade(),

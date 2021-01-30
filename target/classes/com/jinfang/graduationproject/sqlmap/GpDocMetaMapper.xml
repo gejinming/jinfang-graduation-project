@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinfang.graduationproject.mapper.GpDocMetaMapper">
+
+    <resultMap id="BaseResultMap" type="com.jinfang.graduationproject.domain.GpDocMeta">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="origin_name" jdbcType="VARCHAR" property="originName"/>
+        <result column="new_name" jdbcType="VARCHAR" property="newName"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="size" jdbcType="BIGINT" property="size"/>
+        <result column="path" jdbcType="VARCHAR" property="path"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate"/>
+    </resultMap>
+
+    <insert id="add" parameterType="com.jinfang.graduationproject.domain.GpDocMeta" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into gp_doc_meta
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="originName != null">
+                origin_name,
+            </if>
+            <if test="newName != null">
+                new_name,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="size != null">
+                size,
+            </if>
+            <if test="path != null">
+                path,
+            </if>
+            <if test="url != null">
+                url,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="modifyDate != null">
+                modify_date,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="originName != null">
+                #{originName,jdbcType=VARCHAR},
+            </if>
+            <if test="newName != null">
+                #{newName,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="size != null">
+                #{size,jdbcType=BIGINT},
+            </if>
+            <if test="path != null">
+                #{path,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete
+        from gp_doc_meta
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <update id="update" parameterType="com.jinfang.graduationproject.domain.GpDocMeta">
+        update gp_doc_meta
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=BIGINT},
+            </if>
+            <if test="originName != null">
+                origin_name = #{originName,jdbcType=VARCHAR},
+            </if>
+            <if test="newName != null">
+                new_name = #{newName,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="size != null">
+                size = #{size,jdbcType=BIGINT},
+            </if>
+            <if test="path != null">
+                path = #{path,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                url = #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select *
+        from gp_doc_meta
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findPage" resultMap="BaseResultMap">
+        select *
+        from gp_doc_meta
+    </select>
+
+    <select id="findByIds" resultMap="BaseResultMap">
+        select *
+        from gp_doc_meta
+        where id in
+        <foreach collection="ids" index="index" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+
+    </select>
+
+</mapper>

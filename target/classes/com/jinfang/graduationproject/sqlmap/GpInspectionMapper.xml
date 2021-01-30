@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinfang.graduationproject.mapper.GpInspectionMapper">
+
+    <resultMap id="BaseResultMap" type="com.jinfang.graduationproject.domain.GpInspection">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="subject_student_id" jdbcType="BIGINT" property="subjectStudentId"/>
+        <result column="subject_nature" jdbcType="INTEGER" property="subjectNature"/>
+        <result column="subject_major_degree" jdbcType="VARCHAR" property="subjectMajorDegree"/>
+        <result column="subject_difficulty" jdbcType="VARCHAR" property="subjectDifficulty"/>
+        <result column="review_summary" jdbcType="VARCHAR" property="reviewSummary"/>
+        <result column="review_amount" jdbcType="VARCHAR" property="reviewAmount"/>
+        <result column="review_bibliography" jdbcType="VARCHAR" property="reviewBibliography"/>
+        <result column="review_digest_amount" jdbcType="VARCHAR" property="reviewDigestAmount"/>
+        <result column="review_readiness" jdbcType="VARCHAR" property="reviewReadiness"/>
+        <result column="translation_relativity" jdbcType="VARCHAR" property="translationRelativity"/>
+        <result column="translation_quality" jdbcType="VARCHAR" property="translationQuality"/>
+        <result column="translation_amount" jdbcType="VARCHAR" property="translationAmount"/>
+        <result column="opening_report_summary" jdbcType="VARCHAR" property="openingReportSummary"/>
+        <result column="dissertation_plan_execution" jdbcType="VARCHAR" property="dissertationPlanExecution"/>
+        <result column="dissertation_process" jdbcType="VARCHAR" property="dissertationProcess"/>
+        <result column="dissertation_report_process" jdbcType="VARCHAR" property="dissertationReportProcess"/>
+        <result column="guide_assessment_comment" jdbcType="VARCHAR" property="guideAssessmentComment"/>
+        <result column="guide_work_evaluation" jdbcType="VARCHAR" property="guideWorkEvaluation"/>
+        <result column="is_always_work" jdbcType="VARCHAR" property="isAlwaysWork"/>
+        <result column="day_work_time" jdbcType="VARCHAR" property="dayWorkTime"/>
+        <result column="week_work_time" jdbcType="VARCHAR" property="weekWorkTime"/>
+        <result column="is_leave" jdbcType="VARCHAR" property="isLeave"/>
+        <result column="leave_days" jdbcType="VARCHAR" property="leaveDays"/>
+        <result column="is_truancy" jdbcType="VARCHAR" property="isTruancy"/>
+        <result column="truancy_days" jdbcType="VARCHAR" property="truancyDays"/>
+        <result column="reason" jdbcType="VARCHAR" property="reason"/>
+        <result column="summary_evaluation" jdbcType="VARCHAR" property="summaryEvaluation"/>
+        <result column="suggest" jdbcType="VARCHAR" property="suggest"/>
+        <result column="operate_user" jdbcType="VARCHAR" property="operateUser"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate"/>
+        <result column="is_del" jdbcType="INTEGER" property="isDel"/>
+    </resultMap>
+
+    <resultMap id="ExtResultMap"
+               type="com.jinfang.graduationproject.vo.teacher.guider.SubjectStudentInspectionRes"
+               extends="BaseResultMap">
+        <result column="subject_name" jdbcType="VARCHAR" property="subjectName"/>
+        <result column="student_name" jdbcType="VARCHAR" property="studentName"/>
+        <result column="class_name" jdbcType="VARCHAR" property="className"/>
+        <result column="institute_name" jdbcType="VARCHAR" property="instituteName"/>
+        <result column="grade" jdbcType="VARCHAR" property="grade"/>
+    </resultMap>
+
+    <insert id="add" parameterType="com.jinfang.graduationproject.domain.GpInspection">
+        insert into gp_inspection
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="subjectStudentId != null">
+                subject_student_id,
+            </if>
+            <if test="subjectNature != null">
+                subject_nature,
+            </if>
+            <if test="subjectMajorDegree != null">
+                subject_major_degree,
+            </if>
+            <if test="subjectDifficulty != null">
+                subject_difficulty,
+            </if>
+            <if test="reviewSummary != null">
+                review_summary,
+            </if>
+            <if test="reviewAmount != null">
+                review_amount,
+            </if>
+            <if test="reviewBibliography != null">
+                review_bibliography,
+            </if>
+            <if test="reviewDigestAmount != null">
+                review_digest_amount,
+            </if>
+            <if test="reviewReadiness != null">
+                review_readiness,
+            </if>
+            <if test="translationRelativity != null">
+                translation_relativity,
+            </if>
+            <if test="translationQuality != null">
+                translation_quality,
+            </if>
+            <if test="translationAmount != null">
+                translation_amount,
+            </if>
+            <if test="openingReportSummary != null">
+                opening_report_summary,
+            </if>
+            <if test="dissertationPlanExecution != null">
+                dissertation_plan_execution,
+            </if>
+            <if test="dissertationProcess != null">
+                dissertation_process,
+            </if>
+            <if test="dissertationReportProcess != null">
+                dissertation_report_process,
+            </if>
+            <if test="guideAssessmentComment != null">
+                guide_assessment_comment,
+            </if>
+            <if test="guideWorkEvaluation != null">
+                guide_work_evaluation,
+            </if>
+            <if test="isAlwaysWork != null">
+                is_always_work,
+            </if>
+            <if test="dayWorkTime != null">
+                day_work_time,
+            </if>
+            <if test="weekWorkTime != null">
+                week_work_time,
+            </if>
+            <if test="isLeave != null">
+                is_leave,
+            </if>
+            <if test="leaveDays != null">
+                leave_days,
+            </if>
+            <if test="isTruancy != null">
+                is_truancy,
+            </if>
+            <if test="truancyDays != null">
+                truancy_days,
+            </if>
+            <if test="reason != null">
+                reason,
+            </if>
+            <if test="summaryEvaluation != null">
+                summary_evaluation,
+            </if>
+            <if test="suggest != null">
+                suggest,
+            </if>
+            <if test="operateUser != null">
+                operate_user,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="modifyDate != null">
+                modify_date,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="subjectStudentId != null">
+                #{subjectStudentId,jdbcType=BIGINT},
+            </if>
+            <if test="subjectNature != null">
+                #{subjectNature,jdbcType=INTEGER},
+            </if>
+            <if test="subjectMajorDegree != null">
+                #{subjectMajorDegree,jdbcType=VARCHAR},
+            </if>
+            <if test="subjectDifficulty != null">
+                #{subjectDifficulty,jdbcType=VARCHAR},
+            </if>
+            <if test="reviewSummary != null">
+                #{reviewSummary,jdbcType=VARCHAR},
+            </if>
+            <if test="reviewAmount != null">
+                #{reviewAmount,jdbcType=VARCHAR},
+            </if>
+            <if test="reviewBibliography != null">
+                #{reviewBibliography,jdbcType=VARCHAR},
+            </if>
+            <if test="reviewDigestAmount != null">
+                #{reviewDigestAmount,jdbcType=VARCHAR},
+            </if>
+            <if test="reviewReadiness != null">
+                #{reviewReadiness,jdbcType=VARCHAR},
+            </if>
+            <if test="translationRelativity != null">
+                #{translationRelativity,jdbcType=VARCHAR},
+            </if>
+            <if test="translationQuality != null">
+                #{translationQuality,jdbcType=VARCHAR},
+            </if>
+            <if test="translationAmount != null">
+                #{translationAmount,jdbcType=VARCHAR},
+            </if>
+            <if test="openingReportSummary != null">
+                #{openingReportSummary,jdbcType=VARCHAR},
+            </if>
+            <if test="dissertationPlanExecution != null">
+                #{dissertationPlanExecution,jdbcType=VARCHAR},
+            </if>
+            <if test="dissertationProcess != null">
+                #{dissertationProcess,jdbcType=VARCHAR},
+            </if>
+            <if test="dissertationReportProcess != null">
+                #{dissertationReportProcess,jdbcType=VARCHAR},
+            </if>
+            <if test="guideAssessmentComment != null">
+                #{guideAssessmentComment,jdbcType=VARCHAR},
+            </if>
+            <if test="guideWorkEvaluation != null">
+                #{guideWorkEvaluation,jdbcType=VARCHAR},
+            </if>
+            <if test="isAlwaysWork != null">
+                #{isAlwaysWork,jdbcType=VARCHAR},
+            </if>
+            <if test="dayWorkTime != null">
+                #{dayWorkTime,jdbcType=VARCHAR},
+            </if>
+            <if test="weekWorkTime != null">
+                #{weekWorkTime,jdbcType=VARCHAR},
+            </if>
+            <if test="isLeave != null">
+                #{isLeave,jdbcType=VARCHAR},
+            </if>
+            <if test="leaveDays != null">
+                #{leaveDays,jdbcType=VARCHAR},
+            </if>
+            <if test="isTruancy != null">
+                #{isTruancy,jdbcType=VARCHAR},
+            </if>
+            <if test="truancyDays != null">
+                #{truancyDays,jdbcType=VARCHAR},
+            </if>
+            <if test="reason != null">
+                #{reason,jdbcType=VARCHAR},
+            </if>
+            <if test="summaryEvaluation != null">
+                #{summaryEvaluation,jdbcType=VARCHAR},
+            </if>
+            <if test="suggest != null">
+                #{suggest,jdbcType=VARCHAR},
+            </if>
+            <if test="operateUser != null">
+                #{operateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete
+        from gp_inspection
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <update id="update" parameterType="com.jinfang.graduationproject.domain.GpInspection">
+        update gp_inspection
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=BIGINT},
+            </if>
+            <if test="subjectStudentId != null">
+                subject_student_id = #{subjectStudentId,jdbcType=BIGINT},
+            </if>
+            <if test="subjectNature != null">
+                subject_nature = #{subjectNature,jdbcType=INTEGER},
+            </if>
+            <if test="subjectMajorDegree != null">
+                subject_major_degree = #{subjectMajorDegree,jdbcType=VARCHAR},
+            </if>
+            <if test="subjectDifficulty != null">
+                subject_difficulty = #{subjectDifficulty,jdbcType=VARCHAR},
+            </if>
+            <if test="reviewSummary != null">
+                review_summary = #{reviewSummary,jdbcType=VARCHAR},
+            </if>
+            <if test="reviewAmount != null">
+                review_amount = #{reviewAmount,jdbcType=VARCHAR},
+            </if>
+            <if test="reviewBibliography != null">
+                review_bibliography = #{reviewBibliography,jdbcType=VARCHAR},
+            </if>
+            <if test="reviewDigestAmount != null">
+                review_digest_amount = #{reviewDigestAmount,jdbcType=VARCHAR},
+            </if>
+            <if test="reviewReadiness != null">
+                review_readiness = #{reviewReadiness,jdbcType=VARCHAR},
+            </if>
+            <if test="translationRelativity != null">
+                translation_relativity = #{translationRelativity,jdbcType=VARCHAR},
+            </if>
+            <if test="translationQuality != null">
+                translation_quality = #{translationQuality,jdbcType=VARCHAR},
+            </if>
+            <if test="translationAmount != null">
+                translation_amount = #{translationAmount,jdbcType=VARCHAR},
+            </if>
+            <if test="openingReportSummary != null">
+                opening_report_summary = #{openingReportSummary,jdbcType=VARCHAR},
+            </if>
+            <if test="dissertationPlanExecution != null">
+                dissertation_plan_execution = #{dissertationPlanExecution,jdbcType=VARCHAR},
+            </if>
+            <if test="dissertationProcess != null">
+                dissertation_process = #{dissertationProcess,jdbcType=VARCHAR},
+            </if>
+            <if test="dissertationReportProcess != null">
+                dissertation_report_process = #{dissertationReportProcess,jdbcType=VARCHAR},
+            </if>
+            <if test="guideAssessmentComment != null">
+                guide_assessment_comment = #{guideAssessmentComment,jdbcType=VARCHAR},
+            </if>
+            <if test="guideWorkEvaluation != null">
+                guide_work_evaluation = #{guideWorkEvaluation,jdbcType=VARCHAR},
+            </if>
+            <if test="isAlwaysWork != null">
+                is_always_work = #{isAlwaysWork,jdbcType=VARCHAR},
+            </if>
+            <if test="dayWorkTime != null">
+                day_work_time = #{dayWorkTime,jdbcType=VARCHAR},
+            </if>
+            <if test="weekWorkTime != null">
+                week_work_time = #{weekWorkTime,jdbcType=VARCHAR},
+            </if>
+            <if test="isLeave != null">
+                is_leave = #{isLeave,jdbcType=VARCHAR},
+            </if>
+            <if test="leaveDays != null">
+                leave_days = #{leaveDays,jdbcType=VARCHAR},
+            </if>
+            <if test="isTruancy != null">
+                is_truancy = #{isTruancy,jdbcType=VARCHAR},
+            </if>
+            <if test="truancyDays != null">
+                truancy_days = #{truancyDays,jdbcType=VARCHAR},
+            </if>
+            <if test="reason != null">
+                reason = #{reason,jdbcType=VARCHAR},
+            </if>
+            <if test="summaryEvaluation != null">
+                summary_evaluation = #{summaryEvaluation,jdbcType=VARCHAR},
+            </if>
+            <if test="suggest != null">
+                suggest = #{suggest,jdbcType=VARCHAR},
+            </if>
+            <if test="operateUser != null">
+                operate_user = #{operateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select *
+        from gp_inspection
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="selectBySubjectStudentId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select *
+        from gp_inspection
+        where subject_student_id = #{subjectStudentId,jdbcType=BIGINT} order by id desc limit 1
+    </select>
+
+
+    <select id="findPage" resultMap="ExtResultMap">
+        select ss.id as subject_student_id, gs.name as subject_name, cs.name as student_name, clazz.name as class_name,
+        institute.name as institute_name, gs.grade, gi.*
+        from gp_subject_student ss
+        join gp_subject gs on ss.subject_id=gs.id and gs.is_del = 0 and gs.status = 2 and ss.status = 1
+        join cc_teacher ct on gs.teacher_id = ct.id
+        join cc_student cs on ss.student_no = cs.student_no
+        left join cc_class cc on cc.id = cs.class_id
+        left join sys_office clazz on clazz.id = cc.id
+        left join sys_office major ON major.id = clazz.parentid
+        left join sys_office institute ON institute.id = major.parentid
+        left join gp_inspection gi on gi.subject_student_id = ss.id
+
+        where ct.school_id=#{schoolId} and gs.teacher_id=#{teacherId}
+
+        <if test="grade != null and grade !=''">
+            and gs.grade = #{grade}
+        </if>
+        <if test="subjectName != null and subjectName != ''">
+            and gs.name like CONCAT('%',#{subjectName},'%')
+        </if>
+        <if test="status != null and status !='' and status == 0">
+            and gi.id is null
+        </if>
+        <if test="status != null and status !='' and status == 1">
+            and gi.id is not null
+        </if>
+    </select>
+
+</mapper>

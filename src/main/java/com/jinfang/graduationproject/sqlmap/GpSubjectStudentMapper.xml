@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinfang.graduationproject.mapper.GpSubjectStudentMapper">
+
+    <resultMap id="BaseResultMap" type="com.jinfang.graduationproject.domain.GpSubjectStudent">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="subject_id" jdbcType="BIGINT" property="subjectId"/>
+        <result column="student_id" jdbcType="BIGINT" property="studentId"/>
+        <result column="student_no" jdbcType="VARCHAR" property="studentNo"/>
+        <result column="choose_time" jdbcType="TIMESTAMP" property="chooseTime"/>
+        <result column="choose_user" jdbcType="VARCHAR" property="chooseUser"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="approve_time" jdbcType="TIMESTAMP" property="approveTime"/>
+        <result column="approve_user" jdbcType="VARCHAR" property="approveUser"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate"/>
+        <result column="is_del" jdbcType="INTEGER" property="isDel"/>
+    </resultMap>
+
+    <resultMap id="ExtBaseResultMap" type="com.jinfang.graduationproject.vo.student.topic.SubjectStudentPageRes">
+        <result column="subject_id" jdbcType="BIGINT" property="subjectId"/>
+        <result column="subject_name" jdbcType="VARCHAR" property="subjectName"/>
+        <result column="teacher_name" jdbcType="VARCHAR" property="teacherName"/>
+        <result column="member_limit" jdbcType="INTEGER" property="memberLimit"/>
+        <result column="accept_amount" jdbcType="INTEGER" property="acceptAmount"/>
+        <result column="waiting_amount" jdbcType="INTEGER" property="waitingAmount"/>
+    </resultMap>
+
+    <resultMap id="seeReceiveStudentBaseResultMap"
+               type="com.jinfang.graduationproject.vo.teacher.topic.SeeReceiveStudentRespVo" extends="BaseResultMap">
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="student_name" jdbcType="VARCHAR" property="studentName"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="grade" jdbcType="VARCHAR" property="className"/>
+        <result column="status" jdbcType="BIGINT" property="status"/>
+    </resultMap>
+
+    <insert id="add" parameterType="com.jinfang.graduationproject.domain.GpSubjectStudent">
+        insert into gp_subject_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="subjectId != null">
+                subject_id,
+            </if>
+            <if test="studentId != null">
+                student_id,
+            </if>
+            <if test="studentNo != null">
+                student_no,
+            </if>
+            <if test="chooseTime != null">
+                choose_time,
+            </if>
+            <if test="chooseUser != null">
+                choose_user,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="approveTime != null">
+                approve_time,
+            </if>
+            <if test="approveUser != null">
+                approve_user,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="modifyDate != null">
+                modify_date,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="subjectId != null">
+                #{subjectId,jdbcType=BIGINT},
+            </if>
+            <if test="studentId != null">
+                #{studentId,jdbcType=BIGINT},
+            </if>
+            <if test="studentNo != null">
+                #{studentNo,jdbcType=VARCHAR},
+            </if>
+            <if test="chooseTime != null">
+                #{chooseTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="chooseUser != null">
+                #{chooseUser,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="approveTime != null">
+                #{approveTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="approveUser != null">
+                #{approveUser,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete
+        from gp_subject_student
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <update id="update" parameterType="com.jinfang.graduationproject.domain.GpSubjectStudent">
+        update gp_subject_student
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=BIGINT},
+            </if>
+            <if test="subjectId != null">
+                subject_id = #{subjectId,jdbcType=BIGINT},
+            </if>
+            <if test="studentId != null">
+                student_id = #{studentId,jdbcType=BIGINT},
+            </if>
+            <if test="studentNo != null">
+                student_no = #{studentNo,jdbcType=VARCHAR},
+            </if>
+            <if test="chooseTime != null">
+                choose_time = #{chooseTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="chooseUser != null">
+                choose_user = #{chooseUser,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="approveTime != null">
+                approve_time = #{approveTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="approveUser != null">
+                approve_user = #{approveUser,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select *
+        from gp_subject_student
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findPage" resultMap="ExtBaseResultMap">
+        select gs.id as subject_id, gs.name as subject_name, gs.member_limit, ct.name as teacher_name,
+        gss.waiting_amount, gss.accept_amount
+        from gp_subject gs
+        join cc_teacher ct on gs.teacher_id = ct.id and gs.status = 2 and gs.is_del = 0
+        left join gp_subject_statistics gss on gs.id = gss.subject_id and gs.is_del = 0
+        where gss.accept_amount &lt; gs.member_limit
+
+        <if test="subjectName != null and subjectName !=''">
+            and gs.name like CONCAT('%',#{subjectName},'%')
+        </if>
+        <if test="teacherName != null and teacherName !=''">
+            and ct.name like CONCAT('%',#{teacherName},'%')
+        </if>
+
+    </select>
+
+    <select id="seeReceiveStudent" parameterType="com.jinfang.graduationproject.vo.teacher.topic.SeeReceiveStudentReqVo"
+            resultMap="seeReceiveStudentBaseResultMap">
+        select
+        gstu.id,gstu.subject_id,gstu.student_id,gstu.student_no,gstu.status,cstu.name student_name,cstu.mobile_phone
+        mobile,cstu.email,cstu.grade
+        from gp_subject_student gstu
+        inner join cc_student cstu on gstu.student_id = cstu.id
+        where subject_id = #{subjectId}
+        <if test="studentId != null and studentId >0">
+            and gstu.student_id = #{studentId}
+        </if>
+        <if test="status != null">
+            and gstu.status = #{status}
+        </if>
+    </select>
+
+    <select id="selectSubjectByStudentId" resultMap="BaseResultMap">
+        select subject_id, status
+        from gp_subject_student
+        where student_id = #{studentId}
+
+    </select>
+
+
+    <select id="selectBySubjectIdAndStudentId" resultType="java.lang.Integer">
+        select status
+        from gp_subject_student
+        where subject_id = #{subjectId}
+          and student_id = #{studentId}
+
+    </select>
+
+
+    <select id="findReceiveStudentNames" parameterType="java.lang.Long" resultType="java.lang.String">
+        select cs.name
+        from gp_subject_student gss
+                 join cc_student cs on gss.student_id = cs.id
+        where subject_id = #{subjectId}
+          and status = 1
+    </select>
+
+
+    <resultMap id="choiceResultListResultMap"
+               type="com.jinfang.graduationproject.vo.student.topic.ChoiceResultListRespVo">
+        <result column="teacher_name" jdbcType="VARCHAR" property="teacherName"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="status" jdbcType="BIGINT" property="status"/>
+    </resultMap>
+
+    <!-- 根据学生编号获取选题结果 -->
+    <select id="choiceResultList" parameterType="java.lang.String" resultMap="choiceResultListResultMap">
+        select sb.name, sb.teacher_name, stu.status
+        from gp_subject_student stu
+                 inner join gp_subject sb on stu.subject_id = sb.id
+        where student_no = #{studentNo}
+    </select>
+
+    <update id="updateWaitingToRefuse" parameterType="java.lang.Long">
+        update gp_subject_student
+        set status = 2
+        where subject_id = #{subjectId}
+          and status = 0
+    </update>
+
+
+</mapper>

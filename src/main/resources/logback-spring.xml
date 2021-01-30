@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration>
+
+	<!-- constant set -->
+	<springProperty name="appName" source="spring.application.name" />
+	<property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss} |-%-5level [%thread] in %logger{50} - %msg%n" />
+
+	<contextName>logback</contextName>
+
+	<!-- 加载颜色解析器 -->
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+	<!-- 控制台输出日志 -->
+	<appender name="console-stdout" class="ch.qos.logback.core.ConsoleAppender">
+
+		<!-- 指定日志级别 -->
+		<!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter"> -->
+		<!--<level>INFO</level> -->
+		<!--</filter> -->
+
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<!--格式化输出,%d:日期;%thread:线程名;%-5level：级别,从左显示5个字符宽度,可以自定义模板类 -->
+			<!--<layout class="chapters.layouts.MySampleLayout" /> -->
+			<pattern>%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([%15.15t]){faint} %clr(%-40.40logger{0}){cyan} | %msg%n</pattern>
+		</encoder>
+
+	</appender>
+
+	<!-- 文件输出日志 -->
+	<appender name="file-stdout" class="ch.qos.logback.core.rolling.RollingFileAppender" >
+
+		<!-- 采用追加日志的方式 -->
+		<append>false</append>
+
+		<!-- 每天产生一个日志文件,保存30天的日志文件 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/${appName}.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<!--格式化输出,%d:日期;%thread:线程名;%-5level：级别,从左显示5个字符宽度,可以自定义模板类-->
+			<!--<layout class="chapters.layouts.MySampleLayout" />-->
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} |-%-5level [%thread] in  %logger{50} - %msg%n</pattern>
+		</encoder>
+
+	</appender>
+
+	<logger name="com.deepoove.poi.render" level="WARN"> </logger>
+
+	<!-- 定义日志的级别 引用appender -->
+	<root level="INFO">
+		<appender-ref ref="console-stdout" />
+		<appender-ref ref="file-stdout" />
+	</root>
+
+</configuration>

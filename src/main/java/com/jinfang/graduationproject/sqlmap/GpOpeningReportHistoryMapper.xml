@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinfang.graduationproject.mapper.GpOpeningReportHistoryMapper">
+
+  <resultMap id="BaseResultMap" type="com.jinfang.graduationproject.domain.GpOpeningReportHistory">
+	<id column="id" jdbcType="BIGINT" property="id" />
+	<result column="opening_report_id" jdbcType="BIGINT" property="openingReportId" />
+	<result column="subject_id" jdbcType="BIGINT" property="subjectId" />
+	<result column="student_id" jdbcType="BIGINT" property="studentId" />
+	<result column="student_no" jdbcType="VARCHAR" property="studentNo" />
+	<result column="background" jdbcType="LONGVARCHAR" property="background" />
+	<result column="content" jdbcType="LONGVARCHAR" property="content" />
+	<result column="method" jdbcType="LONGVARCHAR" property="method" />
+	<result column="plan" jdbcType="LONGVARCHAR" property="plan" />
+	<result column="submit_user" jdbcType="VARCHAR" property="submitUser" />
+	<result column="submit_time" jdbcType="TIMESTAMP" property="submitTime" />
+	<result column="status" jdbcType="INTEGER" property="status" />
+	<result column="approve_time" jdbcType="TIMESTAMP" property="approveTime" />
+	<result column="approve_user" jdbcType="VARCHAR" property="approveUser" />
+	<result column="approve_suggest" jdbcType="VARCHAR" property="approveSuggest" />
+	<result column="remark" jdbcType="VARCHAR" property="remark" />
+	<result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+	<result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+	<result column="is_del" jdbcType="INTEGER" property="isDel" />
+    <result column="total_scores" jdbcType="DOUBLE" property="totalScores" />
+  </resultMap>
+  
+  <insert id="add" parameterType="com.jinfang.graduationproject.domain.GpOpeningReportHistory">
+    insert into gp_opening_report_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="openingReportId != null">
+        opening_report_id,
+      </if>
+      <if test="subjectId != null">
+        subject_id,
+      </if>
+      <if test="studentId != null">
+        student_id,
+      </if>
+      <if test="studentNo != null">
+        student_no,
+      </if>
+      <if test="background != null">
+        background,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="method != null">
+        method,
+      </if>
+      <if test="plan != null">
+        plan,
+      </if>
+      <if test="submitUser != null">
+        submit_user,
+      </if>
+      <if test="submitTime != null">
+        submit_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="approveTime != null">
+        approve_time,
+      </if>
+      <if test="approveUser != null">
+        approve_user,
+      </if>
+      <if test="approveSuggest != null">
+        approve_suggest,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="modifyDate != null">
+        modify_date,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="totalScores != null">
+        total_scores,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="openingReportId != null">
+        #{openingReportId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectId != null">
+        #{subjectId,jdbcType=BIGINT},
+      </if>
+      <if test="studentId != null">
+        #{studentId,jdbcType=BIGINT},
+      </if>
+      <if test="studentNo != null">
+        #{studentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="background != null">
+        #{background,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="plan != null">
+        #{plan,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="submitUser != null">
+        #{submitUser,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null">
+        #{submitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="approveTime != null">
+        #{approveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveUser != null">
+        #{approveUser,jdbcType=VARCHAR},
+      </if>
+      <if test="approveSuggest != null">
+        #{approveSuggest,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="totalScores != null">
+        #{totalScores,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from gp_opening_report_history
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <update id="update" parameterType="com.jinfang.graduationproject.domain.GpOpeningReportHistory">
+    update gp_opening_report_history
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="openingReportId != null">
+        opening_report_id = #{openingReportId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectId != null">
+        subject_id = #{subjectId,jdbcType=BIGINT},
+      </if>
+      <if test="studentId != null">
+        student_id = #{studentId,jdbcType=BIGINT},
+      </if>
+      <if test="studentNo != null">
+        student_no = #{studentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="background != null">
+        background = #{background,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="method != null">
+        method = #{method,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="plan != null">
+        plan = #{plan,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="submitUser != null">
+        submit_user = #{submitUser,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null">
+        submit_time = #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="approveTime != null">
+        approve_time = #{approveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approveUser != null">
+        approve_user = #{approveUser,jdbcType=VARCHAR},
+      </if>
+      <if test="approveSuggest != null">
+        approve_suggest = #{approveSuggest,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="totalScores != null">
+        total_scores = #{totalScores,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from gp_opening_report_history
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from gp_opening_report_history
+  </select>
+  
+   <insert id="copyInsert" parameterType="java.lang.Long">
+    insert into gp_opening_report_history(opening_report_id,subject_id,student_id,student_no,background,content,method,plan,submit_user,
+    status,approve_time,approve_user,approve_suggest,remark,create_date,modify_date,is_del,total_scores,submit_time)
+    select id,subject_id,student_id,student_no,background,content,method,plan,submit_user,
+    status,approve_time,approve_user,approve_suggest,remark,create_date,modify_date,is_del,total_scores,submit_time
+    from gp_opening_report where id=#{id}
+  </insert>
+  
+    <resultMap id="getByOpeningReportIdListResultMap" type="com.jinfang.graduationproject.vo.teacher.guider.HistoryListRespVo">
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="teacher_name" jdbcType="VARCHAR" property="teacherName"/>
+        <result column="subject_name" jdbcType="VARCHAR" property="subjectName"/>
+       	<result column="submit_time" jdbcType="TIMESTAMP" property="submitTime"/>
+    </resultMap>
+  
+   <select id="getByOpeningReportIdList" parameterType="java.lang.Long" resultMap="getByOpeningReportIdListResultMap">
+       	select his.id,his.submit_time,sbj.name subject_name,sbj.teacher_name from gp_opening_report_history his
+		inner join gp_subject sbj on his.subject_id = sbj.id
+        where his.opening_report_id = #{openingReportId}
+    </select>
+  
+</mapper>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinfang.graduationproject.mapper.GpScoreRoleMapper">
+
+    <resultMap id="BaseResultMap" type="com.jinfang.graduationproject.domain.GpScoreRole">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="grade" jdbcType="VARCHAR" property="grade"/>
+        <result column="school_id" jdbcType="BIGINT" property="schoolId"/>
+        <result column="grade_compose_id" jdbcType="BIGINT" property="gradeComposeId"/>
+        <result column="grade_compose_name" jdbcType="VARCHAR" property="gradeComposeName"/>
+        <result column="roles" jdbcType="VARCHAR" property="roles"/>
+        <result column="operate_user" jdbcType="VARCHAR" property="operateUser"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate"/>
+        <result column="is_del" jdbcType="INTEGER" property="isDel"/>
+    </resultMap>
+
+    <insert id="add" parameterType="com.jinfang.graduationproject.domain.GpScoreRole">
+        insert into gp_score_role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="grade != null">
+                grade,
+            </if>
+            <if test="schoolId != null">
+                school_id,
+            </if>
+            <if test="gradeComposeId != null">
+                grade_compose_id,
+            </if>
+            <if test="gradeComposeName != null">
+                grade_compose_name,
+            </if>
+            <if test="roles != null">
+                roles,
+            </if>
+            <if test="operateUser != null">
+                operate_user,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="modifyDate != null">
+                modify_date,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="grade != null">
+                #{grade,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolId != null">
+                #{schoolId,jdbcType=BIGINT},
+            </if>
+            <if test="gradeComposeId != null">
+                #{gradeComposeId,jdbcType=BIGINT},
+            </if>
+            <if test="gradeComposeName != null">
+                #{gradeComposeName,jdbcType=VARCHAR},
+            </if>
+            <if test="roles != null">
+                #{roles,jdbcType=VARCHAR},
+            </if>
+            <if test="operateUser != null">
+                #{operateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete
+        from gp_score_role
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <update id="update" parameterType="com.jinfang.graduationproject.domain.GpScoreRole">
+        update gp_score_role
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=BIGINT},
+            </if>
+            <if test="grade != null">
+                grade = #{grade,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolId != null">
+                school_id = #{schoolId,jdbcType=BIGINT},
+            </if>
+            <if test="gradeComposeId != null">
+                grade_compose_id = #{gradeComposeId,jdbcType=BIGINT},
+            </if>
+            <if test="gradeComposeName != null">
+                grade_compose_name = #{gradeComposeName,jdbcType=VARCHAR},
+            </if>
+            <if test="roles != null">
+                roles = #{roles,jdbcType=VARCHAR},
+            </if>
+            <if test="operateUser != null">
+                operate_user = #{operateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select *
+        from gp_score_role
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findPage" resultMap="BaseResultMap">
+        select cg.id as grade_compose_id , cp.period_date as grade, cp.school_id,
+        g.name as grade_compose_name, sr.roles
+        from cc_course_periode cp
+        join cc_teacher_course tc on cp.course_id = tc.course_id
+        join cc_course_gradecompose cg on tc.id=cg.teacher_course_id and cg.is_del=0
+        join cc_gradecompose g on cg.gradecompose_id=g.id and g.is_del=0
+        left join gp_score_role sr on sr.grade_compose_id = cg.id and sr.is_del =0
+
+        where cp.school_id = #{schoolId}
+        and cp.course_type=1
+        <if test="grade != null and grade != ''">
+            and cp.period_date = #{grade}
+        </if>
+
+    </select>
+
+    <delete id="deleteBygGradeComposeId" parameterType="com.jinfang.graduationproject.domain.GpScoreRole">
+        delete
+        from gp_score_role
+        where grade = #{grade}
+          and school_id = #{schoolId}
+          and grade_compose_id = #{gradeComposeId}
+    </delete>
+
+</mapper>

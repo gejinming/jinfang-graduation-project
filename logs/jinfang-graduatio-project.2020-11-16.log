@@ -1,0 +1,108 @@
+2020-11-16 16:42:30 |-INFO  [main] in  com.jinfang.graduationproject.Application - Starting Application on DESKTOP-07HEQN8 with PID 7548 (H:\IdeaWork2\jinfang-graduation-project\target\classes started by 0000 in H:\IdeaWork2\jinfang-graduation-project)
+2020-11-16 16:42:30 |-INFO  [main] in  com.jinfang.graduationproject.Application - No active profile set, falling back to default profiles: default
+2020-11-16 16:42:34 |-WARN  [main] in  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.jinfang.graduationproject.*.mapper]' package. Please check your configuration.
+2020-11-16 16:42:35 |-INFO  [main] in  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2f10f633' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-16 16:42:35 |-INFO  [main] in  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-16 16:42:36 |-INFO  [main] in  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8181 (http)
+2020-11-16 16:42:36 |-INFO  [main] in  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-16 16:42:36 |-INFO  [main] in  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-11-16 16:42:36 |-INFO  [main] in  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-16 16:42:36 |-INFO  [main] in  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5334 ms
+2020-11-16 16:42:36 |-INFO  [main] in  o.s.boot.web.servlet.RegistrationBean - Filter webStatFilter was not registered (possibly already registered?)
+2020-11-16 16:42:36 |-INFO  [main] in  o.s.boot.web.servlet.RegistrationBean - Servlet statViewServlet was not registered (possibly already registered?)
+2020-11-16 16:42:36 |-INFO  [main] in  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-11-16 16:42:40 |-INFO  [main] in  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-11-16 16:42:40 |-INFO  [main] in  o.s.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f0cab82, org.springframework.security.web.context.SecurityContextPersistenceFilter@11adab6d, org.springframework.security.web.header.HeaderWriterFilter@cf08c97, org.springframework.web.filter.CorsFilter@3380ca3d, org.springframework.security.web.authentication.logout.LogoutFilter@42a05533, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29519337, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c8e8fed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7fcc3745, org.springframework.security.web.session.SessionManagementFilter@389008d1, org.springframework.security.web.access.ExceptionTranslationFilter@be616f0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@71468613]
+2020-11-16 16:42:40 |-INFO  [main] in  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-16 16:42:41 |-INFO  [main] in  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2020-11-16 16:42:41 |-INFO  [main] in  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8181 (http) with context path ''
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 3 custom documentation plugin(s)
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_1
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_1
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_2
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_2
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_3
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: writeUsingPOST_1
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_3
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: detailsUsingGET_1
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_4
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: addUsingGET_4
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_5
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: writeUsingPOST_2
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_6
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: downloadUsingGET_1
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_7
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: downloadUsingGET_2
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_8
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: detailsUsingPOST_1
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_9
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_1
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: addUsingPOST_1
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_10
+2020-11-16 16:42:41 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_11
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_2
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: examineUsingPOST_1
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_12
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getHistoryDetailUsingGET_1
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: examineUsingPOST_2
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_13
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getHistoryDetailUsingGET_2
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: detailsUsingPOST_2
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_14
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: detailsUsingGET_2
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: editUsingPOST_1
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_15
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getHistoryDetailUsingGET_3
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: examineUsingPOST_3
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_16
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getHistoryDetailUsingGET_4
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: addUsingPOST_2
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_17
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: addUsingPOST_3
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: detailUsingGET_1
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_18
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_19
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: addUsingPOST_4
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_20
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: downloadUsingGET_3
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_21
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_22
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getDetailUsingGET_1
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: addUsingPOST_5
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_23
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getDetailUsingGET_2
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingPOST_1
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_24
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: downloadUsingGET_4
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: downloadUsingGET_5
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_25
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_26
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_27
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: addUsingPOST_6
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_28
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: applyModifyUsingGET_1
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: detailsUsingPOST_3
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: examineUsingPOST_4
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_29
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_30
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_31
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: initUsingPOST_1
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: addUsingPOST_7
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_32
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getDetailUsingGET_3
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: getInputValuesUsingGET_1
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: downloadUsingGET_6
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingPOST_2
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_3
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingPOST_3
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_33
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_4
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingPOST_4
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPageUsingPOST_34
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findPermissionsUsingGET_1
+2020-11-16 16:42:42 |-INFO  [main] in  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_5
+2020-11-16 16:42:42 |-INFO  [main] in  com.jinfang.graduationproject.Application - Started Application in 12.45 seconds (JVM running for 16.479)

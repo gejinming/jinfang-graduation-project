@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinfang.graduationproject.mapper.GpOpeningDefenseMapper">
+
+    <resultMap id="BaseResultMap" type="com.jinfang.graduationproject.domain.GpOpeningDefense">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="subject_student_id" jdbcType="BIGINT" property="subjectStudentId"/>
+        <result column="defense_time" jdbcType="TIMESTAMP" property="defenseTime"/>
+        <result column="defense_address" jdbcType="VARCHAR" property="defenseAddress"/>
+        <result column="teacher_group_comment" jdbcType="LONGVARCHAR" property="teacherGroupComment"/>
+        <result column="operate_user" jdbcType="VARCHAR" property="operateUser"/>
+        <result column="total_scores" jdbcType="DOUBLE" property="totalScores"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate"/>
+        <result column="is_del" jdbcType="INTEGER" property="isDel"/>
+    </resultMap>
+
+    <resultMap id="ExtResultMap" type="com.jinfang.graduationproject.vo.defense.SubjectStudentOpeningDefenseRes"
+               extends="BaseResultMap">
+        <result column="subject_name" jdbcType="VARCHAR" property="subjectName"/>
+        <result column="subject_type" jdbcType="INTEGER" property="subjectType"/>
+        <result column="subject_source" jdbcType="INTEGER" property="subjectSource"/>
+        <result column="subject_nature" jdbcType="INTEGER" property="subjectNature"/>
+        <result column="major_name" jdbcType="VARCHAR" property="majorName"/>
+        <result column="student_id" jdbcType="BIGINT" property="studentId"/>
+        <result column="student_no" jdbcType="VARCHAR" property="studentNo"/>
+        <result column="student_name" jdbcType="VARCHAR" property="studentName"/>
+        <result column="grade" jdbcType="VARCHAR" property="grade"/>
+        <result column="teacher_name" jdbcType="VARCHAR" property="teacherName"/>
+        <result column="defense_time" jdbcType="TIMESTAMP" property="defenseTime"/>
+        <result column="defense_address" jdbcType="VARCHAR" property="defenseAddress"/>
+        <result column="opening_report_suggest" jdbcType="VARCHAR" property="openingReportSuggest"/>
+    </resultMap>
+
+    <insert id="add" parameterType="com.jinfang.graduationproject.domain.GpOpeningDefense" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into gp_opening_defense
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="subjectStudentId != null">
+                subject_student_id,
+            </if>
+            <if test="defenseTime != null">
+                defense_time,
+            </if>
+            <if test="defenseAddress != null">
+                defense_address,
+            </if>
+            <if test="teacherGroupComment != null">
+                teacher_group_comment,
+            </if>
+            <if test="operateUser != null">
+                operate_user,
+            </if>
+            <if test="totalScores != null">
+                total_scores,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="modifyDate != null">
+                modify_date,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="subjectStudentId != null">
+                #{subjectStudentId,jdbcType=BIGINT},
+            </if>
+            <if test="defenseTime != null">
+                #{defenseTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="defenseAddress != null">
+                #{defenseAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="teacherGroupComment != null">
+                #{teacherGroupComment,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="operateUser != null">
+                #{operateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="totalScores != null">
+                #{totalScores,jdbcType=DOUBLE},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete
+        from gp_opening_defense
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <update id="update" parameterType="com.jinfang.graduationproject.domain.GpOpeningDefense">
+        update gp_opening_defense
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=BIGINT},
+            </if>
+            <if test="subjectStudentId != null">
+                subject_student_id = #{subjectStudentId,jdbcType=BIGINT},
+            </if>
+            <if test="defenseTime != null">
+                defense_time = #{defenseTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="defenseAddress != null">
+                defense_address = #{defenseAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="teacherGroupComment != null">
+                teacher_group_comment = #{teacherGroupComment,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="operateUser != null">
+                operate_user = #{operateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="totalScores != null">
+                total_scores = #{totalScores,jdbcType=DOUBLE},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select *
+        from gp_opening_defense
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findPage" resultMap="ExtResultMap">
+        select od.id,
+        ss.id as subject_student_id,
+        gs.name as subject_name,
+        gs.type as subject_type,
+        gs.source as subject_source,
+        gs.nature as subject_nature,
+        major.name as major_name,
+        cs.name as student_name
+        from gp_subject_student ss
+        join gp_subject gs on ss.subject_id = gs.id and gs.status = 2 and gs.is_del = 0 and ss.status = 1
+        join cc_teacher ct on gs.teacher_id = ct.id and ct.is_del = 0
+        join cc_student cs on ss.student_no = cs.student_no and cs.is_del = 0
+        left join cc_class cc on cc.id = cs.class_id
+        left join sys_office clazz on clazz.id = cc.id
+        left join sys_office major on major.id = clazz.parentid
+        left join gp_opening_defense od on od.subject_student_id = ss.id and od.is_del = 0
+
+        where ct.school_id = #{schoolId} and gs.grade = #{grade}
+
+        <if test="studentName != null and studentName !=''">
+            and cs.name like CONCAT('%',#{studentName},'%')
+        </if>
+
+        <if test="majorName != null and majorName !=''">
+            and major.name like CONCAT('%',#{majorName},'%')
+        </if>
+
+        <if test="subjectName != null and subjectName !=''">
+            and gs.name like CONCAT('%',#{subjectName},'%')
+        </if>
+
+        <if test="subjectType != null and subjectType !=''">
+            and gs.type = #{subjectType}
+        </if>
+
+        <if test="subjectSource != null and subjectSource !=''">
+            and gs.source = #{subjectSource}
+        </if>
+    </select>
+
+    <select id="selectBySubjectStudentId" resultMap="ExtResultMap">
+        select ss.id                       as subject_student_id,
+               gs.name                     as subject_name,
+               major.name                  as major_name,
+               cs.id                       as student_id,
+               cs.student_no,
+               cs.name                     as student_name,
+               gs.grade,
+               ct.name                     as teacher_name,
+               gst.opening_defense_time    as defense_time,
+               gst.opening_defense_address as defense_address
+
+        from gp_subject_student ss
+                 join gp_subject gs on ss.subject_id = gs.id and gs.is_del = 0 and gs.status = 2 and ss.status = 1
+                 join cc_teacher ct on gs.teacher_id = ct.id and ct.is_del = 0
+                 join cc_student cs on ss.student_no = cs.student_no and cs.is_del = 0
+                 left join cc_class cc on cc.id = cs.class_id
+                 left join sys_office clazz on clazz.id = cc.id
+                 left join sys_office major on major.id = clazz.parentid
+                 left join gp_setting gst on ct.school_id = gst.school_id and gs.grade = gst.grade
+
+        where ss.id = #{subjectStudentId}
+        limit 1
+    </select>
+
+    <select id="selectByOpeningDefenseId" resultMap="ExtResultMap">
+        select od.id,
+               ss.id      as subject_student_id,
+               gs.name    as subject_name,
+               major.name as major_name,
+               cs.id      as student_id,
+               cs.student_no,
+               cs.name    as student_name,
+               gs.grade,
+               ct.name    as teacher_name,
+               od.defense_time,
+               od.defense_address,
+               od.teacher_group_comment
+        from gp_opening_defense od
+                 join gp_subject_student ss on od.subject_student_id = ss.id and od.is_del = 0 and ss.status = 1
+                 join gp_subject gs on ss.subject_id = gs.id and gs.is_del = 0 and gs.status = 2
+                 join cc_teacher ct on gs.teacher_id = ct.id and ct.is_del = 0
+                 join cc_student cs on ss.student_no = cs.student_no and cs.is_del = 0
+                 left join cc_class cc on cc.id = cs.class_id
+                 left join sys_office clazz on clazz.id = cc.id
+                 left join sys_office major on major.id = clazz.parentid
+
+        where od.id = #{openingDefenseId}
+    </select>
+
+
+    <select id="selectDefenseBySubjectStudentId" resultMap="BaseResultMap">
+        select *
+        from gp_opening_defense
+        where subject_student_id = #{subjectStudentId}
+        order by id desc
+        limit 1
+    </select>
+
+</mapper>

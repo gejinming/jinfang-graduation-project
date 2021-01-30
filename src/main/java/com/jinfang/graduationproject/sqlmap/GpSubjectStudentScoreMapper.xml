@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinfang.graduationproject.mapper.GpSubjectStudentScoreMapper">
+
+    <resultMap id="BaseResultMap" type="com.jinfang.graduationproject.domain.GpSubjectStudentScore">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="grade" jdbcType="VARCHAR" property="grade"/>
+        <result column="school_id" jdbcType="BIGINT" property="schoolId"/>
+        <result column="subject_student_id" jdbcType="BIGINT" property="subjectStudentId"/>
+        <result column="review_score" jdbcType="DOUBLE" property="reviewScore"/>
+        <result column="translation_score" jdbcType="DOUBLE" property="translationScore"/>
+        <result column="opening_report_score" jdbcType="DOUBLE" property="openingReportScore"/>
+        <result column="opening_defense_score" jdbcType="DOUBLE" property="openingDefenseScore"/>
+        <result column="dissertation_score" jdbcType="DOUBLE" property="dissertationScore"/>
+        <result column="graduation_defense_score" jdbcType="DOUBLE" property="graduationDefenseScore"/>
+        <result column="final_score" jdbcType="DOUBLE" property="finalScore"/>
+        <result column="operate_user" jdbcType="VARCHAR" property="operateUser"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate"/>
+        <result column="is_del" jdbcType="INTEGER" property="isDel"/>
+    </resultMap>
+
+    <resultMap id="ExtResultMap" type="com.jinfang.graduationproject.vo.score.SubjectStudentScorePageRes"
+               extends="BaseResultMap">
+        <result column="subject_name" jdbcType="VARCHAR" property="subjectName"/>
+        <result column="student_name" jdbcType="VARCHAR" property="studentName"/>
+        <result column="grade" jdbcType="VARCHAR" property="grade"/>
+        <result column="class_name" jdbcType="VARCHAR" property="className"/>
+    </resultMap>
+
+    <resultMap id="CompleteResultMap" type="com.jinfang.graduationproject.vo.score.SubjectStudentCompleteVo">
+        <result column="subject_student_id" jdbcType="BIGINT" property="subjectStudentId"/>
+        <result column="grade" jdbcType="VARCHAR" property="grade"/>
+        <result column="subject_id" jdbcType="BIGINT" property="subjectId"/>
+        <result column="subject_name" jdbcType="VARCHAR" property="subjectName"/>
+        <result column="subject_type" jdbcType="INTEGER" property="subjectType"/>
+        <result column="subject_source" jdbcType="INTEGER" property="subjectSource"/>
+        <result column="subject_nature" jdbcType="INTEGER" property="subjectNature"/>
+        <result column="subject_nature" jdbcType="INTEGER" property="subjectNature"/>
+        <result column="class_name" jdbcType="VARCHAR" property="className"/>
+        <result column="major_name" jdbcType="VARCHAR" property="majorName"/>
+        <result column="institute_name" jdbcType="VARCHAR" property="instituteName"/>
+        <result column="school_id" jdbcType="BIGINT" property="schoolId"/>
+        <result column="student_id" jdbcType="BIGINT" property="studentId"/>
+        <result column="student_name" jdbcType="VARCHAR" property="studentName"/>
+        <result column="student_no" jdbcType="VARCHAR" property="studentNo"/>
+        <result column="student_sex" jdbcType="INTEGER" property="studentSex"/>
+        <result column="teacher_id" jdbcType="BIGINT" property="teacherId"/>
+        <result column="teacher_name" jdbcType="VARCHAR" property="teacherName"/>
+        <result column="teacher_job_title" jdbcType="INTEGER" property="teacherJobTitle"/>
+        <result column="final_score" jdbcType="DOUBLE" property="score"/>
+    </resultMap>
+
+    <insert id="add" parameterType="com.jinfang.graduationproject.domain.GpSubjectStudentScore">
+        insert into gp_subject_student_score
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="subjectStudentId != null">
+                subject_student_id,
+            </if>
+            <if test="reviewScore != null">
+                review_score,
+            </if>
+            <if test="translationScore != null">
+                translation_score,
+            </if>
+            <if test="openingReportScore != null">
+                opening_report_score,
+            </if>
+            <if test="openingDefenseScore != null">
+                opening_defense_score,
+            </if>
+            <if test="dissertationScore != null">
+                dissertation_score,
+            </if>
+            <if test="graduationDefenseScore != null">
+                graduation_defense_score,
+            </if>
+            <if test="finalScore != null">
+                final_score,
+            </if>
+            <if test="operateUser != null">
+                operate_user,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="modifyDate != null">
+                modify_date,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="subjectStudentId != null">
+                #{subjectStudentId,jdbcType=BIGINT},
+            </if>
+            <if test="reviewScore != null">
+                #{reviewScore,jdbcType=DOUBLE},
+            </if>
+            <if test="translationScore != null">
+                #{translationScore,jdbcType=DOUBLE},
+            </if>
+            <if test="openingReportScore != null">
+                #{openingReportScore,jdbcType=DOUBLE},
+            </if>
+            <if test="openingDefenseScore != null">
+                #{openingDefenseScore,jdbcType=DOUBLE},
+            </if>
+            <if test="dissertationScore != null">
+                #{dissertationScore,jdbcType=DOUBLE},
+            </if>
+            <if test="graduationDefenseScore != null">
+                #{graduationDefenseScore,jdbcType=DOUBLE},
+            </if>
+            <if test="finalScore != null">
+                #{finalScore,jdbcType=DOUBLE},
+            </if>
+            <if test="operateUser != null">
+                #{operateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete
+        from gp_subject_student_score
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <delete id="deleteByGradeAndsSchoolId">
+        delete
+        from gp_subject_student_score
+        where grade = #{grade,jdbcType=VARCHAR}
+          and school_id = #{schoolId,jdbcType=BIGINT}
+    </delete>
+
+    <update id="update" parameterType="com.jinfang.graduationproject.domain.GpSubjectStudentScore">
+        update gp_subject_student_score
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=BIGINT},
+            </if>
+            <if test="subjectStudentId != null">
+                subject_student_id = #{subjectStudentId,jdbcType=BIGINT},
+            </if>
+            <if test="reviewScore != null">
+                review_score = #{reviewScore,jdbcType=DOUBLE},
+            </if>
+            <if test="translationScore != null">
+                translation_score = #{translationScore,jdbcType=DOUBLE},
+            </if>
+            <if test="openingReportScore != null">
+                opening_report_score = #{openingReportScore,jdbcType=DOUBLE},
+            </if>
+            <if test="openingDefenseScore != null">
+                opening_defense_score = #{openingDefenseScore,jdbcType=DOUBLE},
+            </if>
+            <if test="dissertationScore != null">
+                dissertation_score = #{dissertationScore,jdbcType=DOUBLE},
+            </if>
+            <if test="graduationDefenseScore != null">
+                graduation_defense_score = #{graduationDefenseScore,jdbcType=DOUBLE},
+            </if>
+            <if test="finalScore != null">
+                final_score = #{finalScore,jdbcType=DOUBLE},
+            </if>
+            <if test="operateUser != null">
+                operate_user = #{operateUser,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select *
+        from gp_subject_student_score
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findCompleteRecord" resultMap="CompleteResultMap">
+        select ss.id          as subject_student_id,
+               gs.grade,
+               gs.id          as subject_id,
+               gs.name        as subject_name,
+               gs.type        as subject_type,
+               gs.source      as subject_source,
+               gs.nature      as subject_nature,
+               clazz.name     as class_name,
+               major.name     as major_name,
+               institute.name as institute_name,
+               school.id      as school_id,
+               cs.id          as student_id,
+               cs.name        as student_name,
+               cs.student_no,
+               cs.sex         as student_sex,
+               ct.id          as teacher_id,
+               ct.name        as teacher_name,
+               ct.job_title   as teacher_job_title,
+               gsss.final_score
+
+        from gp_subject_student_score gsss
+                 join gp_subject_student ss on gsss.subject_student_id = ss.id and ss.is_del = 0
+                 join gp_subject gs on ss.subject_id = gs.id and gs.is_del = 0 and gs.status = 2 and ss.status = 1
+                 join cc_teacher ct on gs.teacher_id = ct.id and ct.is_del = 0
+                 join cc_student cs on ss.student_no = cs.student_no and cs.is_del = 0
+                 left join cc_class cc on cc.id = cs.class_id
+                 left join sys_office clazz on clazz.id = cc.id
+                 left join sys_office major on major.id = clazz.parentid
+                 left join sys_office institute ON institute.id = major.parentid
+                 left join sys_office school ON school.id = institute.parentid
+
+        where ct.school_id = #{schoolId}
+          and gs.grade = #{grade}
+
+    </select>
+
+    <select id="findByGradeIdAndSchoolId" resultMap="BaseResultMap">
+        select ss.id,
+               gr.total_scores  as review_score,
+               gt.total_scores  as translation_score,
+               gor.total_scores as opening_report_score,
+               god.total_scores as opening_defense_score,
+               gd.total_scores  as dissertation_score,
+               grd.total_scores as graduation_defense_score
+        from gp_subject_student ss
+                 join gp_subject gs on ss.subject_id = gs.id and gs.status = 2 and gs.is_del = 0 and ss.status = 1
+                 join cc_teacher ct on gs.teacher_id = ct.id
+                 left join gp_review gr on ss.subject_id = gr.subject_id and ss.student_id = gr.student_id
+                 left join gp_translation gt on ss.subject_id = gt.subject_id and ss.student_id = gt.student_id
+                 left join gp_opening_report gor on ss.subject_id = gor.subject_id and ss.student_id = gor.student_id
+                 left join gp_opening_defense god on ss.id = god.subject_student_id
+                 left join gp_dissertation gd on ss.subject_id = gd.subject_id and ss.student_id = gd.student_id
+                 left join gp_graduation_defense grd on ss.id = grd.subject_student_id
+
+        where ct.school_id = #{schoolId}
+          and gs.grade = #{grade}
+
+    </select>
+
+
+    <select id="findPage" resultMap="ExtResultMap">
+        select gsss.*,
+               cs.id      as student_id,
+               cs.name    as student_name,
+               ss.subject_id,
+               gs.grade,
+               gs.name    as subject_name,
+               clazz.name as class_name
+        from gp_subject_student_score gsss
+                 join gp_subject_student ss on gsss.subject_student_id = ss.id and ss.is_del = 0
+                 join gp_subject gs on ss.subject_id = gs.id and gs.is_del = 0 and gs.status = 2
+                 join cc_teacher ct on gs.teacher_id = ct.id and ct.is_del = 0
+                 join cc_student cs on ss.student_no = cs.student_no and cs.is_del = 0
+                 left join cc_class cc on cc.id = cs.class_id
+                 left join sys_office clazz on clazz.id = cc.id
+
+        where ct.school_id = #{schoolId}
+          and gs.grade = #{grade}
+
+    </select>
+
+    <insert id="batchInsert" parameterType="list">
+        insert into gp_subject_student_score (grade, school_id, subject_student_id, review_score, translation_score,
+        opening_report_score,
+        opening_defense_score, dissertation_score, graduation_defense_score, final_score, operate_user)
+        values
+
+        <foreach collection="list" item="record" index="index"
+                 separator=",">
+            (#{record.grade,jdbcType=VARCHAR},
+            #{record.schoolId,jdbcType=BIGINT},
+            #{record.subjectStudentId,jdbcType=BIGINT},
+            #{record.reviewScore,jdbcType=DOUBLE},
+            #{record.translationScore,jdbcType=DOUBLE},
+            #{record.openingReportScore,jdbcType=DOUBLE},
+            #{record.openingDefenseScore,jdbcType=DOUBLE},
+            #{record.dissertationScore,jdbcType=DOUBLE},
+            #{record.graduationDefenseScore,jdbcType=DOUBLE},
+            #{record.finalScore,jdbcType=DOUBLE},
+            #{record.operateUser,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+</mapper>

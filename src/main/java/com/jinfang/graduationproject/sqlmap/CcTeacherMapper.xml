@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinfang.graduationproject.mapper.CcTeacherMapper">
+
+    <resultMap id="BaseResultMap" type="com.jinfang.graduationproject.domain.CcTeacher">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="sex" jdbcType="INTEGER" property="sex"/>
+        <result column="birthday" jdbcType="DATE" property="birthday"/>
+        <result column="native_place" jdbcType="VARCHAR" property="nativePlace"/>
+        <result column="nation" jdbcType="VARCHAR" property="nation"/>
+        <result column="politics" jdbcType="VARCHAR" property="politics"/>
+        <result column="country" jdbcType="VARCHAR" property="country"/>
+        <result column="id_card" jdbcType="VARCHAR" property="idCard"/>
+        <result column="highest_education" jdbcType="VARCHAR" property="highestEducation"/>
+        <result column="highest_degrees" jdbcType="INTEGER" property="highestDegrees"/>
+        <result column="bachelor_school" jdbcType="VARCHAR" property="bachelorSchool"/>
+        <result column="bachelor_major" jdbcType="VARCHAR" property="bachelorMajor"/>
+        <result column="master_school" jdbcType="VARCHAR" property="masterSchool"/>
+        <result column="master_major" jdbcType="VARCHAR" property="masterMajor"/>
+        <result column="doctorate_school" jdbcType="VARCHAR" property="doctorateSchool"/>
+        <result column="doctorate_major" jdbcType="VARCHAR" property="doctorateMajor"/>
+        <result column="come_school_time" jdbcType="DATE" property="comeSchoolTime"/>
+        <result column="start_education_year" jdbcType="DATE" property="startEducationYear"/>
+        <result column="job_title" jdbcType="INTEGER" property="jobTitle"/>
+        <result column="administrative" jdbcType="VARCHAR" property="administrative"/>
+        <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone"/>
+        <result column="mobile_phone_sec" jdbcType="VARCHAR" property="mobilePhoneSec"/>
+        <result column="office_phone" jdbcType="VARCHAR" property="officePhone"/>
+        <result column="office_phone_sec" jdbcType="VARCHAR" property="officePhoneSec"/>
+        <result column="qq" jdbcType="VARCHAR" property="qq"/>
+        <result column="wechat" jdbcType="VARCHAR" property="wechat"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="office_address" jdbcType="VARCHAR" property="officeAddress"/>
+        <result column="photo" jdbcType="LONGVARCHAR" property="photo"/>
+        <result column="is_del" jdbcType="BIT" property="isDel"/>
+        <result column="is_leave" jdbcType="BIT" property="isLeave"/>
+        <result column="major_id" jdbcType="BIGINT" property="majorId"/>
+        <result column="institute_id" jdbcType="BIGINT" property="instituteId"/>
+        <result column="school_id" jdbcType="BIGINT" property="schoolId"/>
+    </resultMap>
+
+
+    <resultMap id="ExtResultMap" type="com.jinfang.graduationproject.domain.CcTeacher" extends="BaseResultMap">
+        <result column="major_name" jdbcType="VARCHAR" property="majorName"/>
+        <result column="institute_name" jdbcType="VARCHAR" property="instituteName"/>
+        <result column="school_name" jdbcType="VARCHAR" property="schoolName"/>
+    </resultMap>
+
+    <insert id="add" parameterType="com.jinfang.graduationproject.domain.CcTeacher">
+        insert into cc_teacher
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="modifyDate != null">
+                modify_date,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="birthday != null">
+                birthday,
+            </if>
+            <if test="nativePlace != null">
+                native_place,
+            </if>
+            <if test="nation != null">
+                nation,
+            </if>
+            <if test="politics != null">
+                politics,
+            </if>
+            <if test="country != null">
+                country,
+            </if>
+            <if test="idCard != null">
+                id_card,
+            </if>
+            <if test="highestEducation != null">
+                highest_education,
+            </if>
+            <if test="highestDegrees != null">
+                highest_degrees,
+            </if>
+            <if test="bachelorSchool != null">
+                bachelor_school,
+            </if>
+            <if test="bachelorMajor != null">
+                bachelor_major,
+            </if>
+            <if test="masterSchool != null">
+                master_school,
+            </if>
+            <if test="masterMajor != null">
+                master_major,
+            </if>
+            <if test="doctorateSchool != null">
+                doctorate_school,
+            </if>
+            <if test="doctorateMajor != null">
+                doctorate_major,
+            </if>
+            <if test="comeSchoolTime != null">
+                come_school_time,
+            </if>
+            <if test="startEducationYear != null">
+                start_education_year,
+            </if>
+            <if test="jobTitle != null">
+                job_title,
+            </if>
+            <if test="administrative != null">
+                administrative,
+            </if>
+            <if test="mobilePhone != null">
+                mobile_phone,
+            </if>
+            <if test="mobilePhoneSec != null">
+                mobile_phone_sec,
+            </if>
+            <if test="officePhone != null">
+                office_phone,
+            </if>
+            <if test="officePhoneSec != null">
+                office_phone_sec,
+            </if>
+            <if test="qq != null">
+                qq,
+            </if>
+            <if test="wechat != null">
+                wechat,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="officeAddress != null">
+                office_address,
+            </if>
+            <if test="photo != null">
+                photo,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+            <if test="isLeave != null">
+                is_leave,
+            </if>
+            <if test="majorId != null">
+                major_id,
+            </if>
+            <if test="instituteId != null">
+                institute_id,
+            </if>
+            <if test="schoolId != null">
+                school_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="birthday != null">
+                #{birthday,jdbcType=DATE},
+            </if>
+            <if test="nativePlace != null">
+                #{nativePlace,jdbcType=VARCHAR},
+            </if>
+            <if test="nation != null">
+                #{nation,jdbcType=VARCHAR},
+            </if>
+            <if test="politics != null">
+                #{politics,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="idCard != null">
+                #{idCard,jdbcType=VARCHAR},
+            </if>
+            <if test="highestEducation != null">
+                #{highestEducation,jdbcType=VARCHAR},
+            </if>
+            <if test="highestDegrees != null">
+                #{highestDegrees,jdbcType=INTEGER},
+            </if>
+            <if test="bachelorSchool != null">
+                #{bachelorSchool,jdbcType=VARCHAR},
+            </if>
+            <if test="bachelorMajor != null">
+                #{bachelorMajor,jdbcType=VARCHAR},
+            </if>
+            <if test="masterSchool != null">
+                #{masterSchool,jdbcType=VARCHAR},
+            </if>
+            <if test="masterMajor != null">
+                #{masterMajor,jdbcType=VARCHAR},
+            </if>
+            <if test="doctorateSchool != null">
+                #{doctorateSchool,jdbcType=VARCHAR},
+            </if>
+            <if test="doctorateMajor != null">
+                #{doctorateMajor,jdbcType=VARCHAR},
+            </if>
+            <if test="comeSchoolTime != null">
+                #{comeSchoolTime,jdbcType=DATE},
+            </if>
+            <if test="startEducationYear != null">
+                #{startEducationYear,jdbcType=DATE},
+            </if>
+            <if test="jobTitle != null">
+                #{jobTitle,jdbcType=INTEGER},
+            </if>
+            <if test="administrative != null">
+                #{administrative,jdbcType=VARCHAR},
+            </if>
+            <if test="mobilePhone != null">
+                #{mobilePhone,jdbcType=VARCHAR},
+            </if>
+            <if test="mobilePhoneSec != null">
+                #{mobilePhoneSec,jdbcType=VARCHAR},
+            </if>
+            <if test="officePhone != null">
+                #{officePhone,jdbcType=VARCHAR},
+            </if>
+            <if test="officePhoneSec != null">
+                #{officePhoneSec,jdbcType=VARCHAR},
+            </if>
+            <if test="qq != null">
+                #{qq,jdbcType=VARCHAR},
+            </if>
+            <if test="wechat != null">
+                #{wechat,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="officeAddress != null">
+                #{officeAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="photo != null">
+                #{photo,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=BIT},
+            </if>
+            <if test="isLeave != null">
+                #{isLeave,jdbcType=BIT},
+            </if>
+            <if test="majorId != null">
+                #{majorId,jdbcType=BIGINT},
+            </if>
+            <if test="instituteId != null">
+                #{instituteId,jdbcType=BIGINT},
+            </if>
+            <if test="schoolId != null">
+                #{schoolId,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete
+        from cc_teacher
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <update id="update" parameterType="com.jinfang.graduationproject.domain.CcTeacher">
+        update cc_teacher
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=BIGINT},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="birthday != null">
+                birthday = #{birthday,jdbcType=DATE},
+            </if>
+            <if test="nativePlace != null">
+                native_place = #{nativePlace,jdbcType=VARCHAR},
+            </if>
+            <if test="nation != null">
+                nation = #{nation,jdbcType=VARCHAR},
+            </if>
+            <if test="politics != null">
+                politics = #{politics,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                country = #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="idCard != null">
+                id_card = #{idCard,jdbcType=VARCHAR},
+            </if>
+            <if test="highestEducation != null">
+                highest_education = #{highestEducation,jdbcType=VARCHAR},
+            </if>
+            <if test="highestDegrees != null">
+                highest_degrees = #{highestDegrees,jdbcType=INTEGER},
+            </if>
+            <if test="bachelorSchool != null">
+                bachelor_school = #{bachelorSchool,jdbcType=VARCHAR},
+            </if>
+            <if test="bachelorMajor != null">
+                bachelor_major = #{bachelorMajor,jdbcType=VARCHAR},
+            </if>
+            <if test="masterSchool != null">
+                master_school = #{masterSchool,jdbcType=VARCHAR},
+            </if>
+            <if test="masterMajor != null">
+                master_major = #{masterMajor,jdbcType=VARCHAR},
+            </if>
+            <if test="doctorateSchool != null">
+                doctorate_school = #{doctorateSchool,jdbcType=VARCHAR},
+            </if>
+            <if test="doctorateMajor != null">
+                doctorate_major = #{doctorateMajor,jdbcType=VARCHAR},
+            </if>
+            <if test="comeSchoolTime != null">
+                come_school_time = #{comeSchoolTime,jdbcType=DATE},
+            </if>
+            <if test="startEducationYear != null">
+                start_education_year = #{startEducationYear,jdbcType=DATE},
+            </if>
+            <if test="jobTitle != null">
+                job_title = #{jobTitle,jdbcType=INTEGER},
+            </if>
+            <if test="administrative != null">
+                administrative = #{administrative,jdbcType=VARCHAR},
+            </if>
+            <if test="mobilePhone != null">
+                mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+            </if>
+            <if test="mobilePhoneSec != null">
+                mobile_phone_sec = #{mobilePhoneSec,jdbcType=VARCHAR},
+            </if>
+            <if test="officePhone != null">
+                office_phone = #{officePhone,jdbcType=VARCHAR},
+            </if>
+            <if test="officePhoneSec != null">
+                office_phone_sec = #{officePhoneSec,jdbcType=VARCHAR},
+            </if>
+            <if test="qq != null">
+                qq = #{qq,jdbcType=VARCHAR},
+            </if>
+            <if test="wechat != null">
+                wechat = #{wechat,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="officeAddress != null">
+                office_address = #{officeAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="photo != null">
+                photo = #{photo,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=BIT},
+            </if>
+            <if test="isLeave != null">
+                is_leave = #{isLeave,jdbcType=BIT},
+            </if>
+            <if test="majorId != null">
+                major_id = #{majorId,jdbcType=BIGINT},
+            </if>
+            <if test="instituteId != null">
+                institute_id = #{instituteId,jdbcType=BIGINT},
+            </if>
+            <if test="schoolId != null">
+                school_id = #{schoolId,jdbcType=BIGINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select *
+        from cc_teacher
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findExtById" parameterType="java.lang.Long" resultMap="ExtResultMap">
+        SELECT ct.*, so.id major_id, so.name as major_name,
+               institute.id as institute_id, institute.name as institute_name
+        FROM cc_teacher ct
+                 LEFT JOIN sys_office so ON so.id = ct.major_id
+                 LEFT JOIN sys_office institute ON institute.id = ct.institute_id
+        where ct.id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findPage" resultMap="BaseResultMap">
+        select *
+        from cc_teacher
+    </select>
+
+    <select id="findList" resultMap="ExtResultMap">
+        SELECT ct.id, ct.name, so.id major_id, so.name as major_name,
+        institute.id as institute_id, institute.name as institute_name
+        FROM cc_teacher ct
+        LEFT JOIN sys_office so ON so.id = ct.major_id
+        LEFT JOIN sys_office institute ON institute.id = ct.institute_id
+
+        WHERE ct.is_del = 0 and ct.school_id = #{schoolId}
+        and ct.id not in (select distinct(teacher_id) from gp_defense_teacher where grade = #{grade})
+        <if test="majorName != null and majorName != ''">
+            and so.name like CONCAT('%',#{majorName},'%')
+        </if>
+
+        <if test="teacherName != null and teacherName != ''">
+            and ct.name like CONCAT('%',#{teacherName},'%')
+        </if>
+    </select>
+
+    <select id="selectCountByRoleName" resultType="long">
+        select count(*)
+        from sys_role sr
+        where sr.name = #{roleName}
+          and FIND_IN_SET(sr.id,
+            (
+                select roles
+                from cc_teacher ct
+                         join sys_user_role ur on ct.id = ur.user_id
+                where ct.id = #{teacherId})
+            )
+
+    </select>
+
+    <select id="selectLeadTeacher" resultMap="BaseResultMap">
+        select ct.*
+        from cc_teacher ct
+                 join sys_user_role ur on ct.id = ur.user_id
+        where ct.school_id = #{schoolId} and
+            ur.roles in (select sr.id
+            from sys_role sr
+            where sr.name = #{roleName})
+    </select>
+
+
+</mapper>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinfang.graduationproject.mapper.GpGraduationDefenseScoreMapper">
+
+    <resultMap id="BaseResultMap" type="com.jinfang.graduationproject.domain.GpGraduationDefenseScore">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="graduation_defense_id" jdbcType="BIGINT" property="graduationDefenseId"/>
+        <result column="course_gradecompose_id" jdbcType="BIGINT" property="courseGradecomposeId"/>
+        <result column="indication_id" jdbcType="BIGINT" property="indicationId"/>
+        <result column="score" jdbcType="INTEGER" property="score"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate"/>
+        <result column="is_del" jdbcType="INTEGER" property="isDel"/>
+    </resultMap>
+
+    <insert id="add" parameterType="com.jinfang.graduationproject.domain.GpGraduationDefenseScore">
+        insert into gp_graduation_defense_score
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="graduationDefenseId != null">
+                graduation_defense_id,
+            </if>
+            <if test="courseGradecomposeId != null">
+                course_gradecompose_id,
+            </if>
+            <if test="indicationId != null">
+                indication_id,
+            </if>
+            <if test="score != null">
+                score,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="modifyDate != null">
+                modify_date,
+            </if>
+            <if test="isDel != null">
+                is_del,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="graduationDefenseId != null">
+                #{graduationDefenseId,jdbcType=BIGINT},
+            </if>
+            <if test="courseGradecomposeId != null">
+                #{courseGradecomposeId,jdbcType=BIGINT},
+            </if>
+            <if test="indicationId != null">
+                #{indicationId,jdbcType=BIGINT},
+            </if>
+            <if test="score != null">
+                #{score,jdbcType=INTEGER},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                #{isDel,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete
+        from gp_graduation_defense_score
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <update id="update" parameterType="com.jinfang.graduationproject.domain.GpGraduationDefenseScore">
+        update gp_graduation_defense_score
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=BIGINT},
+            </if>
+            <if test="graduationDefenseId != null">
+                graduation_defense_id = #{graduationDefenseId,jdbcType=BIGINT},
+            </if>
+            <if test="courseGradecomposeId != null">
+                course_gradecompose_id = #{courseGradecomposeId,jdbcType=BIGINT},
+            </if>
+            <if test="indicationId != null">
+                indication_id = #{indicationId,jdbcType=BIGINT},
+            </if>
+            <if test="score != null">
+                score = #{score,jdbcType=INTEGER},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyDate != null">
+                modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDel != null">
+                is_del = #{isDel,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select *
+        from gp_graduation_defense_score
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findByGraduationDefenseId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select *
+        from gp_graduation_defense_score
+        where graduation_defense_id = #{graduationDefenseId}
+    </select>
+
+    <select id="findPage" resultMap="BaseResultMap">
+        select *
+        from gp_graduation_defense_score
+    </select>
+
+    <insert id="batchInsert" parameterType="list">
+        insert into gp_graduation_defense_score (graduation_defense_id, course_gradecompose_id, indication_id, score)
+        values
+
+        <foreach collection="list" item="score" index="index"
+                 separator=",">
+            (#{score.graduationDefenseId,jdbcType=BIGINT},
+            #{score.courseGradecomposeId,jdbcType=BIGINT},
+            #{score.indicationId,jdbcType=BIGINT},
+            #{score.score,jdbcType=INTEGER})
+        </foreach>
+    </insert>
+
+</mapper>

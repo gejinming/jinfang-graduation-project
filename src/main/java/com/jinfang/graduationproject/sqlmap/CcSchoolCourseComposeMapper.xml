@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinfang.graduationproject.mapper.CcSchoolCourseComposeMapper">
+
+  <resultMap id="BaseResultMap" type="com.jinfang.graduationproject.domain.CcSchoolCourseCompose">
+	<id column="id" jdbcType="BIGINT" property="id" />
+	<result column="grade" jdbcType="VARCHAR" property="grade" />
+	<result column="school_id" jdbcType="BIGINT" property="schoolId" />
+	<result column="course_id" jdbcType="BIGINT" property="courseId" />
+	<result column="is_del" jdbcType="INTEGER" property="isDel" />
+	<result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+	<result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+  </resultMap>
+  
+  <insert id="add" parameterType="com.jinfang.graduationproject.domain.CcSchoolCourseCompose">
+    insert into cc_school_course_compose
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="schoolId != null">
+        school_id,
+      </if>
+      <if test="courseId != null">
+        course_id,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="modifyDate != null">
+        modify_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolId != null">
+        #{schoolId,jdbcType=BIGINT},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=BIGINT},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from cc_school_course_compose
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <update id="update" parameterType="com.jinfang.graduationproject.domain.CcSchoolCourseCompose">
+    update cc_school_course_compose
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolId != null">
+        school_id = #{schoolId,jdbcType=BIGINT},
+      </if>
+      <if test="courseId != null">
+        course_id = #{courseId,jdbcType=BIGINT},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        modify_date = #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from cc_school_course_compose
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from cc_school_course_compose
+  </select>
+  
+</mapper>

@@ -290,7 +290,7 @@
     <update id="updateByNodeCode">
         update gp_sys_menu
         set is_open = #{isOpen}
-        where school_id = #{schoolId}
+        where 1 = 1
           and node_code = #{nodeCode}
     </update>
 

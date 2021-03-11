@@ -22,13 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="735292da-20d2-438a-bf8f-9be68ea4a279" name="Default Changelist" comment="修复生成最终成绩时删除成绩和新增成绩sql错误不存在数据库字段">
+    <list default="true" id="735292da-20d2-438a-bf8f-9be68ea4a279" name="Default Changelist" comment="token登陆时学校ID不是704063查不到，不能限制学校ID 去除 selectPermsByRoleName 的限制sm.school_id = #{schoolId} and">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jinfang/graduationproject/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jinfang/graduationproject/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jinfang/graduationproject/security/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jinfang/graduationproject/security/UserDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jinfang/graduationproject/service/impl/SystemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jinfang/graduationproject/service/impl/SystemServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jinfang/graduationproject/sqlmap/SysMenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jinfang/graduationproject/sqlmap/SysMenuMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback-spring.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,14 +311,7 @@
       <workItem from="1612843712612" duration="8426000" />
       <workItem from="1613617035875" duration="4887000" />
       <workItem from="1614566573707" duration="28993000" />
-      <workItem from="1615167215042" duration="15628000" />
-    </task>
-    <task id="LOCAL-00009" summary="加入开题答辩和毕业答辩，修改login对token操作">
-      <created>1599407800754</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1599407800754</updated>
+      <workItem from="1615167215042" duration="16906000" />
     </task>
     <task id="LOCAL-00010" summary="加入 开题答辩，毕业答辩，修改token方式">
       <created>1599408074421</created>
@@ -661,7 +649,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612080105668</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="token登陆时学校ID不是704063查不到，不能限制学校ID 去除 selectPermsByRoleName 的限制sm.school_id = #{schoolId} and">
+      <created>1615444144282</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1615444144283</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -748,7 +743,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="中期检查列表中 修改" />
     <MESSAGE value="添加校验课题 同一教师学生上限是否超过 全局设置" />
     <MESSAGE value="修改定义" />
     <MESSAGE value="修改 grade 过滤条件改为 按照课题表，原来是按照学生表中届别" />
@@ -773,7 +767,8 @@
     <MESSAGE value="增加学生选题历史记录" />
     <MESSAGE value="毕业设计项目加入版本控制" />
     <MESSAGE value="修复生成最终成绩时删除成绩和新增成绩sql错误不存在数据库字段" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复生成最终成绩时删除成绩和新增成绩sql错误不存在数据库字段" />
+    <MESSAGE value="token登陆时学校ID不是704063查不到，不能限制学校ID 去除 selectPermsByRoleName 的限制sm.school_id = #{schoolId} and" />
+    <option name="LAST_COMMIT_MESSAGE" value="token登陆时学校ID不是704063查不到，不能限制学校ID 去除 selectPermsByRoleName 的限制sm.school_id = #{schoolId} and" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

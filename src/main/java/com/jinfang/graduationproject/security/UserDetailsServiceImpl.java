@@ -35,9 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             if (CollectionUtils.isEmpty(permissions)) {
                 return null;
             }
-
             List<GrantedAuthority> grantedAuthorities = permissions.stream().map(GrantedAuthorityImpl::new).collect(Collectors.toList());
-
             // 用户权限列表，根据用户拥有的权限标识与如 @PreAuthorize("hasAuthority('sys:menu:view')") 标注的接口对比，决定是否可以调用接口
             return new JwtUserDetails(loginUserMeta.getPrincipalId() + "", grantedAuthorities);
 

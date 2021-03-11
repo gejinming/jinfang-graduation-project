@@ -278,7 +278,7 @@
         from gp_sys_menu sm
         join gp_sys_role_menu rm on sm.id = rm.menu_id
         join gp_sys_role sr on sr.id = rm.role_id
-        where sm.school_id = #{schoolId} and sm.perms is not null and sm.perms != ''
+        where  sm.perms is not null and sm.perms != ''
         <if test="roleNames.size() > 0">
             and sr.name in
             <foreach collection="roleNames" index="index" item="roleName" open="(" separator="," close=")">

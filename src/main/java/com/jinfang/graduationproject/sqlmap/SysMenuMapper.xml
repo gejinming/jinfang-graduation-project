@@ -263,9 +263,9 @@
         join gp_sys_role sr on sr.id = rm.role_id
 
         where
-
+            1=1
         <if test="roleNames.size() > 0">
-             sr.name in
+            and sr.name in
             <foreach collection="roleNames" index="index" item="roleName" open="(" separator="," close=")">
                 #{roleName}
             </foreach>

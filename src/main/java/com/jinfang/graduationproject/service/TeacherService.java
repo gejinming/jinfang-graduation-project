@@ -42,6 +42,14 @@ public interface TeacherService extends CurdService<CcTeacher> {
      * @return
      */
     boolean isSchoolLeader(Long teacherId);
+    /**
+     * 是否为学校管理员
+     *
+     * @param teacherId 教师ID
+     * @return
+     */
+
+    boolean isSchoolAdmin(Long teacherId);
 
     /**
      * 根据学校ID查询 专业负责人，通过角色判断，如果专业 一个学校内有多个专业负责人，则按照倒叙取最近一个教师信息

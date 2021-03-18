@@ -4,6 +4,7 @@
 
 	<!-- constant set -->
 	<springProperty name="appName" source="spring.application.name" />
+	<springProperty scope="context" name="logdir" source="logback.logdir"/>
 	<property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss} |-%-5level [%thread] in %logger{50} - %msg%n" />
 
 	<contextName>logback</contextName>
@@ -35,7 +36,7 @@
 
 		<!-- 每天产生一个日志文件,保存30天的日志文件 -->
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>logs/${appName}.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<fileNamePattern>${logdir}/${appName}.%d{yyyy-MM-dd}.log</fileNamePattern>
 			<maxHistory>30</maxHistory>
 
 		</rollingPolicy>

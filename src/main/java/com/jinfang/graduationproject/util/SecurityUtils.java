@@ -5,16 +5,13 @@ import com.jinfang.graduationproject.security.SsoAuthenticationToken;
 import com.jinfang.graduationproject.vo.LoginUserMeta;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * Security相关操作
@@ -52,8 +49,12 @@ public class SecurityUtils {
         if (authentication == null) {
             return;
         }
+        /*
+        * 设置登录认证信息到上下文
+         以后就可以 拿到数据了
+         * Authentication authentication1 = SecurityContextHolder.getContext().getAuthentication();
+        * */
 
-        // 设置登录认证信息到上下文
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 

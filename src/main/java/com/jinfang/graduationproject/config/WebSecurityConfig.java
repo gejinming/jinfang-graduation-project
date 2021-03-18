@@ -26,7 +26,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) {
-        // 使用自定义身份验证组件
+        /*
+        * 使用自定义身份验证组件因为是token登陆的所以验证token
+        * 使用密码登陆就用 下面这个对比密码
+        * auth.userDetailsService(userDetailsService).passwordEncoder(BCryptPasswordEncoder)
+        * */
+
         auth.authenticationProvider(new JwtAuthenticationProvider(userDetailsService));
     }
 
@@ -55,6 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
     }
+
 
 
 }

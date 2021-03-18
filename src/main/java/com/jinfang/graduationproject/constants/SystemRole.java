@@ -10,7 +10,9 @@ public enum SystemRole {
 
     DEFENSE("答辩组教师"),
 
-    CHECKER("评阅教师"), GUIDER("指导教师");
+    CHECKER("评阅教师"), GUIDER("指导教师"),
+
+    SCHOOLADMIN("学校管理员");
 
     @Getter
     private String roleName;

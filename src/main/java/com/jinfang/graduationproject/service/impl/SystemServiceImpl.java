@@ -118,6 +118,10 @@ public class SystemServiceImpl implements SystemService {
             roles.add(SystemRole.LEADER.getRoleName());
         }
 
+        boolean isAdmin = teacherService.isSchoolAdmin(teacherId);
+        if (isAdmin) {
+            roles.add(SystemRole.SCHOOLADMIN.getRoleName());
+        }
         GpDefenseTeacher defenseTeacher = defenseTeacherService.findByTeacherId(teacherId);
         if (defenseTeacher != null) {
             // 答辩组组长

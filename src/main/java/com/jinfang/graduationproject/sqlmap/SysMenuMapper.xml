@@ -27,7 +27,7 @@
         select
         <include refid="Base_Column_List"/>
         from gp_sys_menu
-        where id = #{id,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT} and del_flag=0
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete
@@ -222,19 +222,19 @@
     <select id="findAll" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from gp_sys_menu
+        from gp_sys_menu where  del_flag=0
     </select>
     <select id="findPage" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from gp_sys_menu
+        from gp_sys_menu where  del_flag=0
     </select>
     <select id="findPageByName" parameterType="java.lang.String" resultMap="BaseResultMap">
         <bind name="pattern" value="'%' + _parameter.name + '%'"/>
         select
         <include refid="Base_Column_List"/>
         from gp_sys_menu
-        where name like #{pattern}
+        where name like #{pattern} and del_flag=0
     </select>
     <select id="findByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
         select m.*
@@ -246,6 +246,7 @@
           and u.id = ur.user_id
           and ur.role_id = rm.role_id
           and rm.menu_id = m.id
+         and m.del_flag=0
     </select>
     <select id="findRoleMenus" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select m.*
@@ -253,6 +254,7 @@
              gp_sys_role_menu rm
         where rm.role_id = #{roleId,jdbcType=BIGINT}
           and m.id = rm.menu_id
+          and m.del_flag=0
     </select>
 
 
@@ -263,7 +265,7 @@
         join gp_sys_role sr on sr.id = rm.role_id
 
         where
-            1=1
+         sm.del_flag=0
         <if test="roleNames.size() > 0">
             and sr.name in
             <foreach collection="roleNames" index="index" item="roleName" open="(" separator="," close=")">
@@ -278,7 +280,7 @@
         from gp_sys_menu sm
         join gp_sys_role_menu rm on sm.id = rm.menu_id
         join gp_sys_role sr on sr.id = rm.role_id
-        where  sm.perms is not null and sm.perms != ''
+        where  sm.perms is not null and sm.perms != '' and sm.del_flag=0
         <if test="roleNames.size() > 0">
             and sr.name in
             <foreach collection="roleNames" index="index" item="roleName" open="(" separator="," close=")">
@@ -290,8 +292,10 @@
     <update id="updateByNodeCode">
         update gp_sys_menu
         set is_open = #{isOpen}
-        where 1 = 1
+        where
+              del_flag=0
           and node_code = #{nodeCode}
+
     </update>
 
 </mapper>

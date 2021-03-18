@@ -72,6 +72,12 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
+    public boolean isSchoolAdmin(Long teacherId) {
+        long count = ccTeacherMapper.selectCountByRoleName(teacherId, SystemRole.SCHOOLADMIN.getRoleName());
+        return count > 0;
+    }
+
+    @Override
     public CcTeacher getSchoolLeaderTeacher(Long schoolId) {
         return ccTeacherMapper.selectLeadTeacher(schoolId, SystemRole.LEADER.getRoleName());
     }

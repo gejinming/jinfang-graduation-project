@@ -1,24 +1,17 @@
 package com.jinfang.graduationproject.controller.system;
 
-import java.util.List;
-
-import io.swagger.annotations.Api;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.jinfang.graduationproject.constants.SysConstants;
 import com.jinfang.graduationproject.domain.SysUser;
 import com.jinfang.graduationproject.dto.http.HttpResult;
 import com.jinfang.graduationproject.dto.page.PageRequest;
 import com.jinfang.graduationproject.service.SysUserService;
 import com.jinfang.graduationproject.util.PasswordUtils;
+import io.swagger.annotations.Api;
+import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("user")
